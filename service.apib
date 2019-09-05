@@ -1,0 +1,70 @@
+FORMAT: 1A
+
+# VUTTR-Back-End
+Documentação para a API Very Useful Tools To Remember. 
+
+**Nota:** Desafio Back-End da BossaBox.
+
+# Group Tool
+
+## Principal [/tools]
+
+### Listar [GET]
++ Response 200 (application/json)
+    + Attributes (array[Tool])
+
+### Criar [POST]
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+    
+    + Attributes (ToolSchema)
+
++ Response 200 (application/json)
+    + Attributes (array[Tool])
+
+## Queries [/tools?tag={tag}]
+
+### Listar por tag [GET]
++ Response 200 (application/json)
+    + Attributes (array[Tool])
+    
+## Modificar [/tools/_id]
+
+### Editar [PATCH]
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+    
+    + Attributes (ToolSchema)
+
++ Response 200 (application/json)
+    + Attributes (array[Tool])
+
+### Excluir [DELETE]
++ Response 204
+
+
+## Alterar Tags [/tools/_id?tag={tag}]
+
+### Adicionar [PATCH]
++ Response 200
+
+### Remover [DELETE]
++ Response 204
+
+# Data Structures
+
+## ToolSchema(object)
++ title (string) - Nome da ferramenta
++ description (string) - Descrição da ferramenta
++ tags (array[string]) - Tags da ferramenta
+
+## Tool(ToolSchema)
++ _id (string) - ID da ferramenta
