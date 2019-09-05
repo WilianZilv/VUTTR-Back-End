@@ -1,0 +1,21 @@
+version: "2"
+services:
+    app:
+        container_name: app
+        restart: always
+        build: .
+        ports:
+            - "$PORT:$PORT"
+        links:
+            - mongo
+        volumes:
+            - .:/usr/app
+            - /usr/app/node_modules
+    mongo:
+        container_name: mongo
+        image: mongo
+        volumes:
+            - mongo-storage:/data/db
+
+volumes:
+    mongo-storage:
